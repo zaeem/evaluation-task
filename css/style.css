@@ -1,0 +1,117 @@
+
+/* Global Styles */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+    margin-top: 100px;
+    background-color: #fff;
+    color: #000 !important;
+}
+.navbar-inverse .navbar-nav > li > a{
+    color: #000;
+}
+.side-nav {
+    position: fixed;
+    top: 44px;
+    left: 225px;
+    width: 290px !important;
+    margin-left: -225px;
+    border: none;
+    border-radius: 0;
+    overflow-y: auto;
+    background: #d3d3d3;
+    height: 100%;
+    padding: 20px 15px;
+    }
+.navbar-nav.side-nav li{
+    float: none !important;
+}
+.navbar-inverse{
+    background: #d3d3d3;
+}
+.navbar-inverse .navbar-brand {
+    color: #000;
+    font-weight: bold;
+}
+.navbar-inverse .navbar-toggle {
+    border-color: #333;
+    background: #000;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 9999;
+  height: 60px;
+  padding: 15px;
+  background-color: #000;
+}
+#wrapper {
+    padding-left: 0;
+}
+#page-wrapper {
+      min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -20px;
+}
+#page-wrapper:after {
+  content: "";
+  display: block;
+}
+.site-footer, #page-wrapper:after {
+  height: 142px; 
+}
+.site-footer {
+  background: orange;
+  position: absolute;
+  bottom: 0;
+}
+.huge {
+    font-size: 50px;
+    line-height: normal;
+}
+/* Top Navigation */
+
+.
+.side-nav>li>ul>li>a {
+    display: block;
+    padding: 10px 15px 10px 38px;
+    text-decoration: none;
+    color: #999;
+}
+
+.side-nav>li>ul>li>a:hover {
+    color: #fff;
+}
+
+@media(min-width:768px) {
+     body {
+        margin-top: 50px;
+    }
+    #wrapper {padding-right: 225px; padding-left: 0;}
+  .side-nav{right: 0;left: auto;}
+    #wrapper {
+        padding-left: 290px;
+    }
+
+    #page-wrapper {
+        padding: 10px;
+        margin: 0;
+    }
+    .side-nav {
+        position: fixed;
+        top: 51px;
+        left: 225px;
+        width: 225px;
+        margin-left: -225px;
+        border: none;
+        border-radius: 0;
+        overflow-y: auto;
+        background-color: #d3d3d3s;
+    }
+
+
+}
