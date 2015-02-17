@@ -1,3 +1,4 @@
+var timeout;
 $(document).ready(function(){
   loadFilters();
 })
@@ -65,22 +66,26 @@ function filterNameByCheckBoxes() {
 
 //-------------- filter items on serach text -----------------//
 function filterByText(){
-  $('.ajax-loading').show();
-  $.ajax({
-    url: 'http://ziggeo-app.herokuapp.com/items/filtered_items', 
-    type: "GET",
-    dataType: "json",
-    data: {search_name: $('#fiter-field').val()},
-    success: function(data){
-      console.log(data)
-      populate_data(data);
-      $('.ajax-loading').hide();
-    },
-    error: function(){
-      $('.ajax-loading').hide();
-      alert("Load to failed.");
-    } 
-  });  
+  clearTimeout(timeout);
+  timeout = setTimeout(function () {
+    $('.ajax-loading').show();
+    $.ajax({
+      url: 'http://ziggeo-app.herokuapp.com/items/filtered_items', 
+      type: "GET",
+      dataType: "json",
+      data: {search_name: $('#fiter-field').val()},
+      success: function(data){
+        console.log(data)
+        populate_data(data);
+        $('.ajax-loading').hide();
+      },
+      error: function(){
+        $('.ajax-loading').hide();
+        alert("Load to failed.");
+      } 
+    });
+  }, 500);//Called after half second when user stops typing.
+    
 }
 
 //-------------- populate items -----------------//
