@@ -2,6 +2,7 @@ $(document).ready(function(){
   loadFilters();
 })
 
+//-------------- load check Box filters -----------------//
 function loadFilters() {
   $('.ajax-loading').show();
   
@@ -10,7 +11,6 @@ function loadFilters() {
     type: "GET",
     dataType: "json",
     success: function(data){
-      populateCheckBoxFilter();
       populateCheckBoxFilter(data);
       $('.ajax-loading').hide();
     },
@@ -22,6 +22,7 @@ function loadFilters() {
  
 }
 
+//-------------- papulates check Box filters -----------------//
 function populateCheckBoxFilter(filters_names){
   var html = ""
   if (filters_names){
@@ -37,6 +38,7 @@ function populateCheckBoxFilter(filters_names){
   }
 }
 
+//-------------- filter items on check Boxes -----------------//
 function filterNameByCheckBoxes() {
   $('.ajax-loading').show();
   var ids_arr = [];
@@ -50,7 +52,6 @@ function filterNameByCheckBoxes() {
     dataType: "json",
     data: {ids: ids_arr},
     success: function(data){
-      console.log(data)
       populate_data(data);
       $('.ajax-loading').hide();
     },
@@ -62,16 +63,7 @@ function filterNameByCheckBoxes() {
  
 }
 
-function populate_data(items){
-  var html = "";
-  $.each(items, function( i, v ) {
-    html += "<h1>" + v.name + "</h1>";
-    html += "<div><img src='" + v.image +"' /></div>";
-    html += "<p>" + v.description + "</p>"
-  });
-  $('#items-holder').html(html);
-}
-
+//-------------- filter items on serach text -----------------//
 function filterByText(){
   $('.ajax-loading').show();
   $.ajax({
@@ -89,4 +81,15 @@ function filterByText(){
       alert("Load to failed.");
     } 
   });  
+}
+
+//-------------- populate items -----------------//
+function populate_data(items){
+  var html = "";
+  $.each(items, function( i, v ) {
+    html += "<h1>" + v.name + "</h1>";
+    html += "<div><img src='" + v.image +"' /></div>";
+    html += "<p>" + v.description + "</p>"
+  });
+  $('#items-holder').html(html);
 }
