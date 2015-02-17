@@ -11,8 +11,8 @@
     <link href="css/style.css" rel="stylesheet">
     
   </head>
-  <body ng-app="test_app">
-    <div ng-controller="ItemsCtrl" id="wrapper">
+  <body>
+    <div id="wrapper">
       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -27,17 +27,13 @@
           <ul class="nav navbar-nav side-nav">
             <li>
               <div class="form-group">
-                <input class="form-control" placeholder="Search here" ng-model="search_name">
+                <input id="fiter-field" class="form-control" placeholder="Search here" onkeyup="filterByText()">
               </div>
             </li>
             <li>
               <div class="form-group">
                 <label>Select Item</label>
-                <div ng-repeat="filName in getNames()" class="checkbox">
-                  <label>
-                  <input value="" type="checkbox"  ng-model="filter[filName]"> {{filName}}
-                  </label>
-                </div>
+                <div id="checkbox-filter-holder"></div>
               </div>
             </li>
           </ul>
@@ -51,15 +47,10 @@
               <h1 class="page-header">
                 Panel here
               </h1>
-              <div ng-show="ajax_loader == true">
+              <div class="ajax-loading">
                 <img src="images/loading.gif" />
               </div>
-              <div ng-repeat="i in filtered=(items | filter:filterByNames | filter:applySearchFilter)">
-                <h1>{{i.name}}</h1>
-                <div><img ng-src="{{i.image}}" /></div>
-                <p>
-                  {{i.description}}
-                </p>
+              <div id="items-holder">
               </div>
             </div>
           </div>
@@ -72,7 +63,7 @@
       </div>
     </footer>
     <!-- angular JavaScript -->
-    <script src="js/angular.min.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/server_filter_app.js"></script>
   </body>
 </html>
